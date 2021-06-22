@@ -10,7 +10,8 @@ app.use(express.static(path.join(__dirname, "../client/assets")));
 
 app.use("/build", express.static(path.join(__dirname, "../build")));
 
-
+console.log('Dirname', __dirname)
+console.log('CONFIRMED PATH', path.join(__dirname, "../client/index.html"))
 app.get("/", (req, res) => {
   return res.status(200).sendFile(path.join(__dirname, "../client/index.html"));
 });
