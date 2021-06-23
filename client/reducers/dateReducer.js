@@ -46,6 +46,17 @@ const initialState = {
 
 // filter vote from comment to determine yesVote/noVote count
 
+// ADD_TIMEBLOCK: 'ADD_TIMEBLOCK',
+//   ADD_YESVOTE: 'ADD_YESVOTE',
+//   ADD_NOVOTE: 'ADD_NOVOTE',
+//   ADD_COMMENT: 'ADD_COMMENT',
+//   EDIT_TIMEBLOCK: 'EDIT_TIMEBLOCK',
+//   EDIT_YESVOTE: 'EDIT_YESVOTE',
+//   EDIT_NOVOTE: 'EDIT_NOVOTE',
+//   EDIT_COMMENT: 'EDIT_COMMENT',
+//   DELETE_TIMEBLOCK: 'DELETE_TIMEBLOCK',
+//   DELETE_COMMENT: 'DELETE_COMMENT'
+
 const marketsReducer = (state = initialState, action) => {
   switch (action.type) {
     case types.
