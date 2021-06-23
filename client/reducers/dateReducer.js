@@ -59,7 +59,53 @@ const initialState = {
 
 const marketsReducer = (state = initialState, action) => {
   switch (action.type) {
-    case types.
+    case types.ADD_TIMEBLOCK:
+      return {
+        ...state,
+        // add an object to the timeBlock array
+        state.timeBlock.concat({
+          
+        })
+      };
+    case types.ADD_YESVOTE:
+      return {
+        ...state,
+
+      };
+    case types.ADD_NOVOTE:
+      return {
+
+      };
+    case types.ADD_COMMENT:
+      return {
+
+      };
+    case types.EDIT_TIMEBLOCK:
+      return {
+
+      };
+    case types.EDIT_YESVOTE:
+      return {
+
+      };
+    case types.EDIT_NOVOTE:
+      return {
+
+      };
+    case types.EDIT_COMMENT:
+      return {
+
+      };
+    case types.DELETE_TIMEBLOCK:
+      return {
+
+      };
+    case types.DELETE_COMMENT:
+      return {
+
+      };
+    default:
+      return state;
   }
 };
 
