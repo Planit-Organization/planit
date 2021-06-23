@@ -1,28 +1,30 @@
 import React from "react";
 import { Route, Switch} from "react-router-dom";
+import NavBar from './NavBar'
+import LoginPage from "./LoginPage";
 
 const MainContainer = props => {
 
 
   return (<div>
-    <Navbar></Navbar>
+    <NavBar></NavBar>
      <Switch>
-        <Route
+        {/* <Route
           exact path = "/"
           component = {LandingPageContainer} //welcome page with Navbar (sign up/login)
-        />
-        <Route
+        /> */}
+        {/* <Route
           path = "/calendar" // /calendar/date -> todolsit
           component = {DashboardContainer}
-        />
+        /> */}
         <Route
           exact path = "/login"
-          component = {LoginContainer}
+          component = {LoginPage}
         />
-        <Route
+        {/* <Route
           exact path = "/signup"
           component = {SignupContainer}
-        />
+        /> */}
      </Switch>
   </div>)
 }

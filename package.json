@@ -24,6 +24,7 @@
   "homepage": "https://github.com/Planit-Organization/planit#readme",
   "dependencies": {
     "concurrently": "^6.2.0",
+    "cookie-session": "^1.4.0",
     "cross-env": "^7.0.3",
     "eslint": "^7.29.0",
     "express": "^4.17.1",
