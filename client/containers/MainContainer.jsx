@@ -5,23 +5,23 @@ const MainContainer = props => {
 
 
   return (<div>
-    <Navbar></Navbar>
+    {/* <Navbar></Navbar> */}
      <Switch>
         <Route
           exact path = "/"
-          component = {LandingPageContainer} //welcome page with Navbar (sign up/login)
+          // component = {LandingPageContainer} //welcome page with Navbar (sign up/login)
         />
         <Route
           path = "/calendar" // /calendar/date -> todolsit
-          component = {DashboardContainer}
+          // component = {DashboardContainer}
         />
         <Route
           exact path = "/login"
-          component = {LoginContainer}
+          // component = {LoginContainer}
         />
         <Route
           exact path = "/signup"
-          component = {SignupContainer}
+          // component = {SignupContainer}
         />
      </Switch>
   </div>)
