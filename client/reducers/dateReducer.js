@@ -1,27 +1,5 @@
 import * as types from '../constants/actionTypes';
 
-// {
-//   currentUser: 'poofywater',
-//   date: 0,
-//   timeBlock: [{
-//     eventName: "example event",
-//     // sort by start time when displaying on page
-//     startTime: '1:00pm',
-//     endTime: '2:00pm',
-//     proposedBy: 'lurbot',
-//     confirmed: false,
-//     yesVote: 0,
-//     noVote: 0,
-//     comments: [{
-//       user: 'example user',
-//       vote: 'yes',
-//       comment: "hell yea",
-//       time: '3:27pm'
-//     }]
-//   }],
-//   users: 0
-// }
-
 const initialState = {
   currentUser: '',
   date: null,
@@ -46,49 +24,96 @@ const initialState = {
 
 // filter vote from comment to determine yesVote/noVote count
 
-// ADD_TIMEBLOCK: 'ADD_TIMEBLOCK',
-//   ADD_YESVOTE: 'ADD_YESVOTE',
-//   ADD_NOVOTE: 'ADD_NOVOTE',
-//   ADD_COMMENT: 'ADD_COMMENT',
-//   EDIT_TIMEBLOCK: 'EDIT_TIMEBLOCK',
-//   EDIT_YESVOTE: 'EDIT_YESVOTE',
-//   EDIT_NOVOTE: 'EDIT_NOVOTE',
-//   EDIT_COMMENT: 'EDIT_COMMENT',
-//   DELETE_TIMEBLOCK: 'DELETE_TIMEBLOCK',
-//   DELETE_COMMENT: 'DELETE_COMMENT'
-
-const marketsReducer = (state = initialState, action) => {
+const dateReducer = (state = initialState, action) => {
   switch (action.type) {
     case types.ADD_TIMEBLOCK:
+      const newTimeBlock = {
+        confirmed: false,
+        yesVote: 1,
+        noVote: 0,
+        comments: [],
+        ...action.payload
+      };
+    // push new block object and then sort timeBlock array
+    timeBlock.push(newTimeBlock);
+    timeBlock.sort((a, b) => a.startTime - b.startTime);
       return {
         ...state,
         // add an object to the timeBlock array
-        state.timeBlock.concat({
-          
-        })
+        timeBlock:  newTimeBlock,
       };
+    // single vote type, send whether yes or no vote in payload
+    case types.ADD_VOTE:
+      const newTimeBlock = [];
+      state.timeBlock.forEach(block => {
+        if (block.startTime === action.payload.startTime) {
+          // if yes vote, increment yesVotes
+          if (action.payload.vote === true) {
+            newTimeBlock.push({
+              ...block,
+              yesVote: block.yesVote + 1
+            })
+          } else {
+            newTimeBlock.push({
+              ...block,
+              noVote: block.noVote + 1
+            });
+          } 
+        } else newTimeBlock.push(block);
+      });
     case types.ADD_YESVOTE:
+      const newTimeBlock = [];
+      state.timeBlock.forEach(block => {
+         if (block.startTime === action.payload) {
+           newTimeBlock.push({
+             ...block,
+             yesVote: block.yesVote + 1,
+         });
+        } else newTimeBlock.push(block);
+      });
+      let isConfirmed = false;
+      if (yesVote > Math.floor(state.users / 2)) isConfirmed = true; 
       return {
         ...state,
-
+        timeBlock: newTimeBlock,
+        confirmed: isConfirmed
       };
+
     case types.ADD_NOVOTE:
+      const newTimeBlock = [];
+      state.timeBlock.forEach(block => {
+         if (block.startTime === action.payload) {
+           newTimeBlock.push({
+             ...block,
+             noVote: block.noVote + 1,
+         });
+        } else newTimeBlock.push(block);
+      });
+      // if (noVote > (state.users / 2))
       return {
-
+        ...state,
+        timeBlock: newTimeBlock,
       };
+
     case types.ADD_COMMENT:
-      return {
+      const newTimeBlock = [];
+      state.timeBlock.forEach(block => {
+        if (block.startTime === action.payload.startTime) {
+          block.comments.push(action.payload.comment);
+        } 
+        newTimeBlock.push(block);
+     });
+     return {
+       ...state,
+       timeBlock: newTimeBlock,
+     };
 
-      };
     case types.EDIT_TIMEBLOCK:
       return {
 
       };
-    case types.EDIT_YESVOTE:
-      return {
-
-      };
-    case types.EDIT_NOVOTE:
+    // collapse into single edit vote
+    case types.EDIT_VOTE:
       return {
 
       };

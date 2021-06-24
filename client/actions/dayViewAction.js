@@ -1,41 +1,41 @@
 import * as types from '../constants/actionTypes';
 
-export const addTimeBlock = () => {
+export const addTimeBlock = data => ({
+  type: types.ADD_TIMEBLOCK,
+  payload: data
+});
 
-};
+export const addVote = data => ({
+  type: types.ADD_NOVOTE,
+  payload: data // startTime, yesVote or noVote
+});
 
-export const addYesVote = () => {
+export const addComment = data => ({
+  type: types.ADD_COMMENT,
+  payload: data // startTime and content of comment
+});
 
-};
+export const editTimeBlock = data => ({
+  type: types.EDIT_TIMEBLOCK,
+  payload: data
+});
 
-export const addNoVote = () => {
+export const editVote = data => ({
+  type: types.EDIT_YESVOTE,
+  payload: data
+});
 
-};
+export const editComment = data => ({
+  type: types.EDIT_COMMENT,
+  payload: data
+});
 
-export const addComment = () => {
+export const deleteTimeBlock = data => ({
+  type: types.DELETE_TIMEBLOCK,
+  payload: data
+});
 
-};
-
-export const editTimeBlock = () => {
-
-};
-
-export const editYesVote = () => {
-
-};
-
-export const editNoVote = () => {
-
-};
-
-export const editComment = () => {
-
-};
-
-export const deleteTimeBlock = () => {
-
-};
-
-export const deleteComment = () => {
-
-};
+export const deleteComment = data => ({
+  type: types.DELETE_COMMENT,
+  payload: data
+});
