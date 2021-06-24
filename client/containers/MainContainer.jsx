@@ -1,6 +1,6 @@
 import React from "react";
 import { Route, Switch } from "react-router-dom";
-import Navbar from "./Navbar";
+import Navbar from "./NavBar";
 import DashBoardContainer from "./DashBoardContainer";
 
 const MainContainer = (props) => {

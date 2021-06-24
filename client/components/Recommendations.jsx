@@ -5,7 +5,7 @@ const Recommendations = (props) => {
     <div className="recommendation">
       <section>
         <p>
-          {props.user}{" "}
+          {props.user}
           <span id="recdate">
             {props.createdAt}
             {props.currentUser == props.user ? (

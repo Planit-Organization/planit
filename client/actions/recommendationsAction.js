@@ -1,4 +1,4 @@
-import constants from "../constants/actionTypes";
+import constants from "../constants/recActionTypes";
 
 // updates state for onChange of recommendation
 export const updateNewRecommendation = (e) => ({
@@ -69,6 +69,4 @@ export const deleteRecommendation = (data) => (dispatch) => {
     .catch((e) => console.log("Error when adding recommendation: ", e));
 };
 // wait for alura and derek
-export const sendRecommendation = () => (dispatch) => {
-
-};
+export const sendRecommendation = () => (dispatch) => {};
