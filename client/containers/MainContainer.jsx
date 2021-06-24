@@ -1,15 +1,15 @@
 import React from "react";
 import { Route, Switch} from "react-router-dom";
-import LandingPageContainer from "./LandingPageContainer.jsx";
-import DashBoardContainer from "./DashBoardContainer.jsx";
-import LoginContainer from "./LoginContainer.jsx";
-import SignupContainer from "./SignupContainer.jsx";
+import NavBar from './NavBar'
+import LoginPage from "../components/LoginPage";
+import RegisterPage from "../components/RegisterPage";
+import DashBoardContainer from "./DashBoardContainer";
 
 const MainContainer = props => {
 
 
   return (<div>
-    {/* <Navbar></Navbar> */}
+    <NavBar></NavBar>
      <Switch>
         {/* <Route
           exact path = "/"
@@ -21,12 +21,16 @@ const MainContainer = props => {
         />
         <Route
           exact path = "/login"
-          component = {LoginContainer}
+          component = {LoginPage}
         />
         <Route
+          exact path = "/register"
+          component = {RegisterPage}
+        />
+        {/* <Route
           exact path = "/signup"
           component = {SignupContainer}
-        />
+        /> */}
      </Switch>
   </div>)
 }

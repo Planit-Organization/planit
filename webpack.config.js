@@ -39,11 +39,6 @@ module.exports = {
       },
     ],
   },
-  plugins: [
-    new HtmlWebpackPlugin({
-      template: "/client/index.html",
-    }),
-  ],
   devtool: "eval-source-map",
   devServer: {
     // contentBase: path.join(__dirname, "/client"),

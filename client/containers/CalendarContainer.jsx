@@ -1,13 +1,14 @@
 import React, {useState} from 'react';
 import DayContainer from './DayContainer.jsx';
 import Calendar from 'react-calendar'
+
 // import '../react-calendar/dist/Calendar.css';
 // import 'react-calendar/dist/Calendar.css';
 
 //need to add users to trips (fetch request)
 //add trips too (fetch request)
 
-const CalendarContainer = (onClickDay) => {
+const CalendarContainer = () => {
   
   // for (let day = 0; day < 31; day++) {
     //   <DayContainer key = {day}/>
@@ -34,7 +35,6 @@ const CalendarContainer = (onClickDay) => {
   return (
     <div>
       <Calendar
-        // value = {setValue}
         // value = {value}
         onChange = {click}
         // onClickDay = {click}
