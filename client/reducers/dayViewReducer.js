@@ -24,7 +24,7 @@ const initialState = {
 
 // filter vote from comment to determine yesVote/noVote count
 
-const dateReducer = (state = initialState, action) => {
+const dayViewReducer = (state = initialState, action) => {
   switch (action.type) {
     case types.ADD_TIMEBLOCK:
       const newTimeBlock = {
@@ -61,39 +61,6 @@ const dateReducer = (state = initialState, action) => {
           } 
         } else newTimeBlock.push(block);
       });
-    case types.ADD_YESVOTE:
-      const newTimeBlock = [];
-      state.timeBlock.forEach(block => {
-         if (block.startTime === action.payload) {
-           newTimeBlock.push({
-             ...block,
-             yesVote: block.yesVote + 1,
-         });
-        } else newTimeBlock.push(block);
-      });
-      let isConfirmed = false;
-      if (yesVote > Math.floor(state.users / 2)) isConfirmed = true; 
-      return {
-        ...state,
-        timeBlock: newTimeBlock,
-        confirmed: isConfirmed
-      };
-
-    case types.ADD_NOVOTE:
-      const newTimeBlock = [];
-      state.timeBlock.forEach(block => {
-         if (block.startTime === action.payload) {
-           newTimeBlock.push({
-             ...block,
-             noVote: block.noVote + 1,
-         });
-        } else newTimeBlock.push(block);
-      });
-      // if (noVote > (state.users / 2))
-      return {
-        ...state,
-        timeBlock: newTimeBlock,
-      };
 
     case types.ADD_COMMENT:
       const newTimeBlock = [];
@@ -110,9 +77,10 @@ const dateReducer = (state = initialState, action) => {
 
     case types.EDIT_TIMEBLOCK:
       return {
-
+        ...state,
+        time
       };
-    // collapse into single edit vote
+
     case types.EDIT_VOTE:
       return {
 

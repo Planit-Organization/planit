@@ -6,6 +6,7 @@ export const addTimeBlock = data => ({
 });
 
 export const addVote = data => ({
+  // send to backend and dispatch when 
   type: types.ADD_NOVOTE,
   payload: data // startTime, yesVote or noVote
 });

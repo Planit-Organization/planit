@@ -1,5 +1,5 @@
 import { combineReducers } from "redux";
-import dateReducer from './dateReducer';
+import dayViewReducer from './dayViewReducer';
 
 
 const reducers = combineReducers({
