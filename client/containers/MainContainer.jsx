@@ -1,6 +1,6 @@
 import React from "react";
 import { Route, Switch } from "react-router-dom";
-import Navbar from "./NavBar";
+import Navbar from "./Navbar";
 import DashBoardContainer from "./DashBoardContainer";
 import LoginPage from "../components/LoginPage";
 import RegisterPage from "../components/RegisterPage";
