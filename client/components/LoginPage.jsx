@@ -25,12 +25,12 @@ const LoginPage = () => {
 
   return(
     <div>
-      <h1>Login Page</h1>
+      <h1 id = "login">Login Page</h1>
       
         <input id='email' placeholder='Enter Email'></input>
         <input id='password' placeholder='Enter Password'></input>
-        <button onClick={loginUser}>Submit</button>
-        <button onClick={oAuthLogin}>Google OAuth</button>
+        <button id='submit' onClick={loginUser}>Submit</button>
+        <a href='/auth/google' id = "google" onClick={oAuthLogin}>Google OAuth</a>
       
       
     </div>

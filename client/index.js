@@ -5,6 +5,7 @@ import App from "./App.jsx";
 import store from "./store";
 import { BrowserRouter } from "react-router-dom";
 import 'react-calendar/dist/Calendar.css';
+import './styles.css';
 
 
 render(

@@ -1,4 +1,4 @@
-import * as types from '../constants/dayActionTypes';
+import types from '../constants/dayActionTypes';
 
 export const addTimeBlock = data => ({
   type: types.ADD_TIMEBLOCK,
