@@ -1,5 +1,6 @@
 // login signup home
 import React from "react";
+
 import { Link } from "react-router-dom";
 
 
@@ -8,10 +9,13 @@ const Navbar = () => {
     <div className="navbar">
       <Link to="/">Home</Link>
       <Link to="/calendar">Dashboard</Link>
-      <Link to="/login"></Link>
-      <Link to="/signup"></Link>
+      <Link to="/login">Login Page</Link>
+      <Link to="/signup">Register Page</Link>
+
     </div>
   );
 };
 
-export default Navbar;
+
+export default NavBar;
+

@@ -2,6 +2,8 @@ import React from "react";
 import { Route, Switch } from "react-router-dom";
 import Navbar from "./NavBar";
 import DashBoardContainer from "./DashBoardContainer";
+import LoginPage from "../components/LoginPage";
+import RegisterPage from "../components/RegisterPage";
 
 const MainContainer = (props) => {
   return (
@@ -16,9 +18,15 @@ const MainContainer = (props) => {
           path="/calendar" // /calendar/date -> todolsit
           component={DashBoardContainer}
         />
+
+
         <Route
           exact path = "/login"
-          component = {LoginContainer}
+          component = {LoginPage}
+        />
+        <Route
+          exact path = "/register"
+          component = {RegisterPage}
         />
         <Route
           exact path = "/signup"
@@ -28,5 +36,6 @@ const MainContainer = (props) => {
     </div>
   );
 };
+
 
 export default MainContainer;

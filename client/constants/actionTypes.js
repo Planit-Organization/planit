@@ -1,8 +1,10 @@
 // export const ADD_TRIP = 'ADD_TRIP';
-let constants;
-export default constants = {
-  ADD_RECOMMENDATION: "ADD_RECOMMENDATION",
-  DELETE_RECOMMENDATION: "DELETE_RECOMMENDATION",
-  EDIT_RECOMMENDATION: "EDIT_RECOMMENDATION",
-  UPDATE_NEW_RECOMMENDATION: "UPDATE_NEW_RECOMMENDATION",
-};
+
+
+const types = {
+  ADD_TRIP: 'ADD_TRIP',
+  LOGIN: 'LOGIN'
+}
+
+export default types
+
