@@ -4,6 +4,8 @@ import { Provider } from "react-redux";
 import App from "./App.jsx";
 import store from "./store";
 import { BrowserRouter } from "react-router-dom";
+import 'react-calendar/dist/Calendar.css';
+
 
 render(
   <Provider store={store}>
