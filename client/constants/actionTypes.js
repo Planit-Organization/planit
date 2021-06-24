@@ -1,5 +1,5 @@
 // export const ADD_TRIP = 'ADD_TRIP';
-
+let constants;
 export default constants = {
   ADD_RECOMMENDATION: "ADD_RECOMMENDATION",
   DELETE_RECOMMENDATION: "DELETE_RECOMMENDATION",

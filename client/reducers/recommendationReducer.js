@@ -1,4 +1,4 @@
-import * as constants from "../constants/actionTypes";
+import constants from "../constants/actionTypes";
 
 const initialState = {
   user: "example",
