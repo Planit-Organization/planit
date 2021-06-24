@@ -1,23 +1,25 @@
 import React from "react";
-import { Route, Switch} from "react-router-dom";
-import NavBar from './NavBar'
+import { Route, Switch } from "react-router-dom";
+import Navbar from "./NavBar";
+import DashBoardContainer from "./DashBoardContainer";
 import LoginPage from "../components/LoginPage";
 import RegisterPage from "../components/RegisterPage";
 
-const MainContainer = props => {
-
-
-  return (<div>
-    <NavBar></NavBar>
-     <Switch>
-        {/* <Route
+const MainContainer = (props) => {
+  return (
+    <div>
+      <Navbar></Navbar>
+      <Switch>
+        <Route
           exact path = "/"
           component = {LandingPageContainer} //welcome page with Navbar (sign up/login)
-        /> */}
-        {/* <Route
-          path = "/calendar" // /calendar/date -> todolsit
-          component = {DashboardContainer}
-        /> */}
+        />
+        <Route
+          path="/calendar" // /calendar/date -> todolsit
+          component={DashBoardContainer}
+        />
+
+
         <Route
           exact path = "/login"
           component = {LoginPage}
@@ -26,12 +28,14 @@ const MainContainer = props => {
           exact path = "/register"
           component = {RegisterPage}
         />
-        {/* <Route
+        <Route
           exact path = "/signup"
           component = {SignupContainer}
-        /> */}
-     </Switch>
-  </div>)
-}
+        />
+      </Switch>
+    </div>
+  );
+};
+
 
 export default MainContainer;

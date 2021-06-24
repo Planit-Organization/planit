@@ -6,6 +6,7 @@ require ('./GoogleAuth')
 const path = require("path");
 const authContoller = require("./controllers/authController");
 const app = express();
+// const recommendationRouter = require("./routes/recommendationRouter");
 const PORT = 3000;
 
 app.use(express.json());
@@ -23,6 +24,7 @@ app.use(express.static(path.join(__dirname, "../client/assets")));
 
 app.use("/build", express.static(path.join(__dirname, "../build")));
 
+// app.use('/recommendations', recommendationRouter);
 
 app.get("/", (req, res) => {
   return res.status(200).sendFile(path.join(__dirname, "../client/index.html"));
