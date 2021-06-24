@@ -9,7 +9,7 @@ const GoogleStrategy = require('passport-google-oauth2').Strategy;
 passport.use(new GoogleStrategy({
     clientID: keys.clientID,
     clientSecret: keys.clientSecret,
-    callbackURL: "/tester",
+    callbackURL: "http://localhost:8080/tester",
     passReqToCallBack: true
   },
   (accessToken, refreshToken, profile, done) => {

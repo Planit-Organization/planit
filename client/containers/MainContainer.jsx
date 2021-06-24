@@ -6,6 +6,7 @@ import LoginPage from "../components/LoginPage";
 import RegisterPage from "../components/RegisterPage";
 
 const MainContainer = (props) => {
+
   return (
     <div>
       <Navbar></Navbar>

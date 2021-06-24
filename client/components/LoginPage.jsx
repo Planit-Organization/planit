@@ -30,7 +30,7 @@ const LoginPage = () => {
         <input id='email' placeholder='Enter Email'></input>
         <input id='password' placeholder='Enter Password'></input>
         <button onClick={loginUser}>Submit</button>
-        <button onClick={oAuthLogin}>Google OAuth</button>
+        <a href='/auth/google'>Google OAuth</a>
       
       
     </div>

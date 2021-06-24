@@ -8,7 +8,7 @@ import Calendar from 'react-calendar'
 //need to add users to trips (fetch request)
 //add trips too (fetch request)
 
-const CalendarContainer = () => {
+const CalendarContainer = ({setDate, r}) => {
   
   // for (let day = 0; day < 31; day++) {
     //   <DayContainer key = {day}/>
@@ -26,6 +26,7 @@ const CalendarContainer = () => {
 
 
   const click = (e) => {
+    setDate(e)
     setValue(e)
     console.log(e)
   }
