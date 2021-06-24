@@ -78,25 +78,64 @@ const dayViewReducer = (state = initialState, action) => {
     case types.EDIT_TIMEBLOCK:
       return {
         ...state,
-        time
+        timeBlock: action.payload
       };
 
     case types.EDIT_VOTE:
-      return {
+      const newTimeBlock = [];
+      state.timeBlock.forEach(block => {
+        if (block.startTime === action.payload.startTime) {
+          // if yes vote, increment yesVotes
+          if (action.payload.vote === true) {
+            newTimeBlock.push({
+              ...block,
+              noVote: block.noVote - 1,
+              yesVote: block.yesVote + 1
+            })
+          } else {
+            newTimeBlock.push({
+              ...block,
+              noVote: block.noVote + 1,
+              yesVote: block.yesVote - 1
+            });
+          } 
+        } else newTimeBlock.push(block);
+      });
 
-      };
     case types.EDIT_COMMENT:
-      return {
+      const newTimeBlock = [];
+      state.timeBlock.forEach(block => {
+        if (block.startTime === action.payload.startTime) {
+          block.comments.push(action.payload.comment);
+        } 
+        newTimeBlock.push(block);
+     });
+     return {
+       ...state,
+       timeBlock: newTimeBlock,
+     };
 
-      };
     case types.DELETE_TIMEBLOCK:
-      return {
+      const newTimeBlock = state.timeBlock;
+      state.newTimeBlock.filter(block => block.startTime !== action.payload);
+     return {
+       ...state,
+       timeBlock: newTimeBlock,
+     };
 
-      };
     case types.DELETE_COMMENT:
+      const newTimeBlock = [];
+      state.timeBlock.forEach(block => {
+        if (block.startTime === action.payload.startTime) {
+          block.comments.filter(comment => comment.time !== action.payload.time);
+        }
+        newTimeBlock.push(block);
+      });
       return {
-
+        ...state,
+        timeBlock: newTimeBlock
       };
+      
     default:
       return state;
   }
