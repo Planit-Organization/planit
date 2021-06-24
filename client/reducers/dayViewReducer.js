@@ -1,4 +1,4 @@
-import * as types from '../constants/actionTypes';
+import types from '../constants/dayActionTypes';
 
 const initialState = {
   currentUser: '',
@@ -25,6 +25,7 @@ const initialState = {
 // filter vote from comment to determine yesVote/noVote count
 
 const dayViewReducer = (state = initialState, action) => {
+  const newTimeBlocks = [];
   switch (action.type) {
     case types.ADD_TIMEBLOCK:
       const newTimeBlock = {
@@ -40,39 +41,37 @@ const dayViewReducer = (state = initialState, action) => {
       return {
         ...state,
         // add an object to the timeBlock array
-        timeBlock:  newTimeBlock,
+        timeBlock: newTimeBlock,
       };
     // single vote type, send whether yes or no vote in payload
     case types.ADD_VOTE:
-      const newTimeBlock = [];
       state.timeBlock.forEach(block => {
         if (block.startTime === action.payload.startTime) {
           // if yes vote, increment yesVotes
           if (action.payload.vote === true) {
-            newTimeBlock.push({
+            newTimeBlocks.push({
               ...block,
               yesVote: block.yesVote + 1
             })
           } else {
-            newTimeBlock.push({
+            newTimeBlocks.push({
               ...block,
               noVote: block.noVote + 1
             });
           } 
-        } else newTimeBlock.push(block);
+        } else newTimeBlocks.push(block);
       });
 
     case types.ADD_COMMENT:
-      const newTimeBlock = [];
       state.timeBlock.forEach(block => {
         if (block.startTime === action.payload.startTime) {
           block.comments.push(action.payload.comment);
         } 
-        newTimeBlock.push(block);
+        newTimeBlocks.push(block);
      });
      return {
        ...state,
-       timeBlock: newTimeBlock,
+       timeBlock: newTimeBlocks,
      };
 
     case types.EDIT_TIMEBLOCK:
@@ -82,58 +81,55 @@ const dayViewReducer = (state = initialState, action) => {
       };
 
     case types.EDIT_VOTE:
-      const newTimeBlock = [];
       state.timeBlock.forEach(block => {
         if (block.startTime === action.payload.startTime) {
           // if yes vote, increment yesVotes
           if (action.payload.vote === true) {
-            newTimeBlock.push({
+            newTimeBlocks.push({
               ...block,
               noVote: block.noVote - 1,
               yesVote: block.yesVote + 1
             })
           } else {
-            newTimeBlock.push({
+            newTimeBlocks.push({
               ...block,
               noVote: block.noVote + 1,
               yesVote: block.yesVote - 1
             });
           } 
-        } else newTimeBlock.push(block);
+        } else newTimeBlocks.push(block);
       });
 
     case types.EDIT_COMMENT:
-      const newTimeBlock = [];
       state.timeBlock.forEach(block => {
         if (block.startTime === action.payload.startTime) {
           block.comments.push(action.payload.comment);
         } 
-        newTimeBlock.push(block);
+        newTimeBlocks.push(block);
      });
      return {
        ...state,
-       timeBlock: newTimeBlock,
+       timeBlock: newTimeBlocks,
      };
 
     case types.DELETE_TIMEBLOCK:
-      const newTimeBlock = state.timeBlock;
-      state.newTimeBlock.filter(block => block.startTime !== action.payload);
+      const newTimeBlockss = state.timeBlock;
+      state.newTimeBlockss.filter(block => block.startTime !== action.payload);
      return {
        ...state,
-       timeBlock: newTimeBlock,
+       timeBlock: newTimeBlockss,
      };
 
     case types.DELETE_COMMENT:
-      const newTimeBlock = [];
       state.timeBlock.forEach(block => {
         if (block.startTime === action.payload.startTime) {
           block.comments.filter(comment => comment.time !== action.payload.time);
         }
-        newTimeBlock.push(block);
+        newTimeBlocks.push(block);
       });
       return {
         ...state,
-        timeBlock: newTimeBlock
+        timeBlock: newTimeBlocks
       };
       
     default:
@@ -141,4 +137,4 @@ const dayViewReducer = (state = initialState, action) => {
   }
 };
 
-export default marketsReducer;
+export default dayViewReducer;

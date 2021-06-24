@@ -2,6 +2,7 @@ import React from 'react';
 import { Switch, Route, useRouteMatch } from 'react-router-dom';
 import CalendarContainer from './CalendarContainer';
 import RecommendationContainer from "./RecommendationContainer";
+import DayViewContainer from "./DayViewContainer";
 
 const DashBoardContainer = (props) => {
   const { path } = useRouteMatch();

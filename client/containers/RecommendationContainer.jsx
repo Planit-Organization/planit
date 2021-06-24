@@ -5,7 +5,7 @@ import * as recActions from "../actions/recommendationsAction";
 import Recommendations from "../components/Recommendations";
 
 const mapStateToProps = (state) => ({
-  user: state.authentication.user,
+  // user: state.authentication.user,
   recommendations: state.recommendation.recommendations,
   newRecommendation: state.recommendation.newRecommendation,
 });
@@ -15,7 +15,7 @@ const mapDispatchToProps = (dispatch) =>
 
 const RecommendationContainer = (props) => {
   const userRecommendations = props.recommendations.map((rec) => {
-    <Recommendations recommendation={rec} currentUser={props.user}></Recommendations>;
+    <Recommendations recommendation={rec} ></Recommendations>;
   });
 
   return (

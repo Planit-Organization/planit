@@ -4,7 +4,6 @@ import Navbar from "./Navbar";
 import DashBoardContainer from "./DashBoardContainer";
 import LoginPage from "../components/LoginPage";
 import RegisterPage from "../components/RegisterPage";
-import DashBoardContainer from "./DashBoardContainer";
 
 const MainContainer = (props) => {
   return (
@@ -13,14 +12,6 @@ const MainContainer = (props) => {
       <Switch>
         <Route
           exact path = "/"
-<<<<<<< HEAD
-          component = {LandingPageContainer} //welcome page with Navbar (sign up/login)
-        /> */}
-        <Route
-          path = "/" // /calendar/date -> todolsit
-          component = {DashBoardContainer}
-        />
-=======
           // component = {LandingPageContainer} //welcome page with Navbar (sign up/login)
         />
         <Route
@@ -29,7 +20,6 @@ const MainContainer = (props) => {
         />
 
 
->>>>>>> dev
         <Route
           exact path = "/login"
           component = {LoginPage}

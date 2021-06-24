@@ -1,6 +1,6 @@
-import  types from '../constants/actionTypes'
+import types from '../constants/dayActionTypes'
 
-export const initialState = {
+const initialState = {
   date: "",
 
 }
@@ -8,14 +8,14 @@ export const initialState = {
 const calendarReducer = (state = initialState, action) => {
   switch(action.types){
     case types.SELECT_DAY:
-      const date = action.payload.date;
+      const date = ""
+      // action.payload.date;
       return {
         ...state,
         date
       }
-      default: {
+      default: 
         return state;
-      }
   }
 }
 
