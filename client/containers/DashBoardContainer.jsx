@@ -1,5 +1,6 @@
 import React from 'react';
 import { Switch, Route, useRouteMatch } from 'react-router-dom';
+import CalendarContainer from './CalendarContainer';
 
 const DashBoardContainer = props => {
   const { path } = useRouteMatch();
@@ -7,11 +8,11 @@ const DashBoardContainer = props => {
     <Switch>
       <Route exact path={`${path}/`}>
         <CalendarContainer />
-        <RecommendationContainer />
+        {/* <RecommendationContainer /> */}
       </Route>
-      <Route path ={`${path}/:date`}
-        component = {DayViewContainer}
-      />
+      {/* <Route path ={`${path}/:date`}
+        // component = {DayViewContainer}
+      /> */}
     </Switch>
 
   </div>)
