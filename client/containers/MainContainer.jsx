@@ -1,7 +1,8 @@
 import React from "react";
 import { Route, Switch} from "react-router-dom";
 import NavBar from './NavBar'
-import LoginPage from "./LoginPage";
+import LoginPage from "../components/LoginPage";
+import RegisterPage from "../components/RegisterPage";
 
 const MainContainer = props => {
 
@@ -20,6 +21,10 @@ const MainContainer = props => {
         <Route
           exact path = "/login"
           component = {LoginPage}
+        />
+        <Route
+          exact path = "/register"
+          component = {RegisterPage}
         />
         {/* <Route
           exact path = "/signup"

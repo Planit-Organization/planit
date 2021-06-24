@@ -9,6 +9,9 @@ const NavBar = () => {
         <NavLink className="navLink" to="/login">
           Login Page
         </NavLink>
+        <NavLink className='navLink' to="/register">
+          RegisterPage
+        </NavLink>
       </nav>
     </div>
   );
