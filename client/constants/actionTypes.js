@@ -31,3 +31,11 @@ export default constants = {
   DELETE_TIMEBLOCK: 'DELETE_TIMEBLOCK',
   DELETE_COMMENT: 'DELETE_COMMENT'
 }
+
+const types = {
+  ADD_TRIP: 'ADD_TRIP',
+  LOGIN: 'LOGIN'
+}
+
+export default types
+
