@@ -22,12 +22,12 @@ app.use(passport.initialize());
 
 app.use(express.static(path.join(__dirname, "../client/assets")));
 
-app.use("/build", express.static(path.join(__dirname, "../build")));
+app.use("/build", express.static(path.resolve(__dirname, "../build")));
 
 // app.use('/recommendations', recommendationRouter);
 
 app.get("/", (req, res) => {
-  return res.status(200).sendFile(path.join(__dirname, "../client/index.html"));
+  return res.status(200).sendFile(path.resolve(__dirname, "../client/index.html"));
 });
 app.get('/failed', (req, res) => {
   res.sec('YOU FAILED TO LOGIN WEEB')
