@@ -1,6 +1,6 @@
 import { useParams } from 'react-router-dom';
 
-const DayViewContainer = (props) => {
+const DayViewContainer = ({date}) => {
   return (
     <div>Yeo!</div>
   )
