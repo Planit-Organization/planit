@@ -4,9 +4,7 @@ import MainContainer from './containers/MainContainer';
 
 const App = props => {
   return (<div>
-    <Router>
       <MainContainer />
-    </Router>
   </div>)
 }
 
